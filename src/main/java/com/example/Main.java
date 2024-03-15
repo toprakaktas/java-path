@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Random;
+import java.util.function.IntBinaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,5 +28,12 @@ public class Main {
         };
         System.out.println(calculator.calculate(4,7));
 
+        // Instead of using the calculator interface that I created, I can use ready-made one.
+        IntBinaryOperator calculator2 = (int x, int y) -> {
+            Random random = new Random();
+            int randomNumber = random.nextInt(50);
+            return x * y + randomNumber;
+        };
+        System.out.println(calculator2.applyAsInt(3,5));
     }
 }
